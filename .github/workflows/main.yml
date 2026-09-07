@@ -21,10 +21,18 @@ jobs:
           HF_TOKEN: ${{ secrets.HF_TOKEN }}
         run: |
           git clone https://user:$HF_TOKEN@huggingface.co/spaces/Arrsssa/2555038-2026.09.07 hf-space
-          cp -r "인공지능모델운영/2555038-2026.09.07/." hf-space/
+
+          rsync -av --delete \
+            --exclude='.git/' \
+            --exclude='images/' \
+            "인공지능모델운영/2555038-2026.09.07/" \
+            hf-space/
+
           cd hf-space
+
           git config user.email "github-actions@github.com"
           git config user.name "github-actions"
-          git add .
+
+          git add -A
           git commit -m "Deploy from GitHub" || echo "No changes"
           git push
