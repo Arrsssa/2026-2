@@ -3,8 +3,8 @@ title: 2555038 2026.09.07
 emoji: 🚀
 colorFrom: blue
 colorTo: green
-sdk: static
-app_file: index.html
+sdk: docker
+app_port: 7860
 pinned: false
 ---
 # CI/CD with GitHub Actions & Hugging Face Spaces
