@@ -4,6 +4,9 @@ on:
   push:
     branches:
       - main
+    paths:
+      - "인공지능모델운영/2555038-2026.09.07/**"
+      - ".github/workflows/main.yml"
 
 jobs:
   deploy:
@@ -18,7 +21,7 @@ jobs:
           HF_TOKEN: ${{ secrets.HF_TOKEN }}
         run: |
           git clone https://user:$HF_TOKEN@huggingface.co/spaces/Arrsssa/2555038-2026.09.07 hf-space
-          cp -r "인공지능모델운영/." hf-space/
+          cp -r "인공지능모델운영/2555038-2026.09.07/." hf-space/
           cd hf-space
           git config user.email "github-actions@github.com"
           git config user.name "github-actions"
